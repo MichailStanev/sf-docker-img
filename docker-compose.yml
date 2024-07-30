@@ -36,8 +36,8 @@ services:
         ports:
           - "8800:80"
         volumes:
-            - ./docker/php/vhosts:/etc/apache2/sites-enabled
-            - ./:/var/www
+            - /home/projects/symfony/docker/php/vhosts:/etc/apache2/sites-enabled
+            - /home/projects/symfony/app:/var/www
         restart: always
         networks:
             - symfony-network
