@@ -1,9 +1,8 @@
 FROM php:8.2-fpm
 
 # Install required dependencies
-RUN apt-get update && apt-get install -y \
-    libpng-dev libjpeg-dev libfreetype6-dev libonig-dev \
-    locales git zip unzip \
+RUN apt-get update && apt-get clean && apt-get install -y \
+    libpng-dev libjpeg-dev libfreetype6-dev libonig-dev locales git zip unzip \
     && docker-php-ext-install pdo pdo_mysql mbstring gd zip intl opcache
 
 # Set locales (optional)
