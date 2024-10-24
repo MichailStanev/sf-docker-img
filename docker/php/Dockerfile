@@ -1,8 +1,8 @@
 FROM php:8.2-fpm-alpine
 
-# Install required dependencies
 RUN apk add --no-cache \
-    libpng-dev libjpeg-turbo-dev libfreetype-dev \
+    libpng-dev libjpeg-turbo-dev libfreetype-dev autoconf build-base \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install pdo pdo_mysql mbstring gd intl zip opcache
 
 # Set locales (optional)
