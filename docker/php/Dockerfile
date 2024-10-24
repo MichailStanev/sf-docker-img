@@ -1,11 +1,10 @@
 FROM php:8.2-fpm-alpine
 
 # Install dependencies for aarch64 architecture
-RUN apk add --no-cache \
-    libpng-dev libjpeg-turbo-dev libfreetype-dev g++ make autoconf \
+RUN apk --verbose add --no-cache \
+    libpng-dev libjpeg-dev libfreetype-dev g++ make autoconf \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd pdo pdo_mysql mbstring intl zip opcache
-
 
 # Set locales (optional)
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
