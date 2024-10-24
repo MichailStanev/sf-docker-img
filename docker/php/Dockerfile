@@ -1,9 +1,9 @@
-FROM php:8.2-fpm
+FROM php:8.2-fpm-alpine
 
 # Install required dependencies
-RUN apt-get update && apt-get clean && apt-get install -y \
-    libpng-dev libjpeg-dev libfreetype6-dev libonig-dev locales git zip unzip \
-    && docker-php-ext-install pdo pdo_mysql mbstring gd zip intl opcache
+RUN apk add --no-cache \
+    libpng-dev libjpeg-turbo-dev libfreetype-dev \
+    && docker-php-ext-install pdo pdo_mysql mbstring gd intl zip opcache
 
 # Set locales (optional)
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
