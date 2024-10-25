@@ -2,16 +2,16 @@ version: "3.8"
 services:
     # Mysql database container
     db:
-        image: liupeng0518/mysql:5.7-arm64
-        container_name: db
+        image: mariadb
+        container_name: symfony-db
         restart: always
         volumes:
             - db-data:/var/lib/mysql
         environment:
-            MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
-            MYSQL_DATABASE: ${MYSQL_DATABASE}
-            MYSQL_USER: ${MYSQL_USER}
-            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+            MARIADB_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+            MARIADB_DATABASE: ${MYSQL_DATABASE}
+            MARIADBL_USER: ${MYSQL_USER}
+            MARIADBL_PASSWORD: ${MYSQL_PASSWORD}
         ports:
             - "3366:3306"
         networks:
