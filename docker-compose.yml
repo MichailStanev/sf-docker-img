@@ -13,7 +13,7 @@ services:
             MYSQL_USER: ${MYSQL_USER}
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
         ports:
-            - "3366:3366"
+            - "3366:3306"
         networks:
             - symfony-network
 
