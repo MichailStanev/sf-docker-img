@@ -2,15 +2,13 @@ version: "3.8"
 services:
     # Mysql database container
     db:
-        image: mysql:oracle
+        image: liupeng0518/mysql:5.7-arm64
         container_name: db
         restart: always
-        command: ["mysqld", "--mysql-native-password=ON"]
         volumes:
             - db-data:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
-            MYSQL_AUTHENTICATION_PLUGIN: mysql_native_password
             MYSQL_DATABASE: ${MYSQL_DATABASE}
             MYSQL_USER: ${MYSQL_USER}
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
