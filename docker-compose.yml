@@ -2,7 +2,7 @@ version: "3.8"
 services:
     # Mysql database container
     db:
-        image: mysql:5.7
+        image: mysql:oracle
         container_name: db
         restart: always
         volumes:
